@@ -1,18 +1,16 @@
-# NOTE: update this with your service name
-service: serverless-nodejs-starter
-
-# Create an optimized package for our functions 
+org: profdouglasmorais
+app: aws-lambda
+service: aws-lambda
 package:
   individually: true
 
 plugins:
-  - serverless-bundle # Package our functions with Webpack
+  - serverless-bundle
   - serverless-offline
-  - serverless-dotenv-plugin # Load .env as environment variables
-
+  - serverless-dotenv-plugin
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   stage: dev
   region: us-east-1
   # To load environment variables externally
@@ -20,8 +18,8 @@ provider:
   # the following line. Also, make sure to not
   # commit your .env.
   #
-  #environment:
-  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  environment:
+   SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
 
 functions:
   hello:
